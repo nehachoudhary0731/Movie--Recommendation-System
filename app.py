@@ -4,7 +4,6 @@ import requests
 
 API_KEY = "0f33911584de75b5fa9c06bec8330214"
 
-# ✅ Function to fetch poster using TMDB API
 def fetch_poster(movie_id):
     try:
         url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={API_KEY}&language=en-US"
@@ -21,7 +20,6 @@ def fetch_poster(movie_id):
         print("Poster fetch error:", e)
         return "https://via.placeholder.com/500x750?text=Error"
 
-# ✅ Function to recommend similar movies
 def recommend(movie):
     index = movies[movies['title'] == movie].index[0]
     distances = sorted(
@@ -36,11 +34,9 @@ def recommend(movie):
 
     return recommended_movie_names, recommended_movie_posters
 
-# ✅ Streamlit UI
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 st.header('🎬 Movie Recommender System')
 
-# ✅ Load pre-trained data
 movies = pickle.load(open('movie_list.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
@@ -50,11 +46,9 @@ selected_movie = st.selectbox(
     movie_list
 )
 
-# ✅ Show Recommendations
 if st.button('🎥 Show Recommendation'):
     recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
 
-    # Layout: 5 columns side-by-side
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
