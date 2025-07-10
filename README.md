@@ -23,7 +23,7 @@ It uses content-based filtering techniques using NLP and cosine similarity.
 
 The system is built using movie metadata datasets which include:
 - Movie titles
-- Overview/synopsis
+- Overview
 - Genres
 - Cast and crew
 
