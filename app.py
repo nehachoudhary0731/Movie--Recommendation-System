@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
 import requests
 
-API_KEY = "0f33911584de75b5fa9c06bec8330214"
+API_KEY = "TMDB_API_KEY_HERE"
 
 def fetch_poster(movie_id):
     try:
@@ -27,7 +27,7 @@ def recommend(movie):
     recommended_movie_names = []
     recommended_movie_posters = []
 
-    for i in distances[1:6]:  # Get top 5 recommendations
+    for i in distances[1:6]:  
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movie_names.append(movies.iloc[i[0]].title)
         recommended_movie_posters.append(fetch_poster(movie_id))
